@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--10.Soru-->  
+    <div>
+        <label for="" style="margin: 5px;">Sayı 1</label>
+        <input style="margin: 5px; padding: 2px 5.03px;" type="text" name="" id="sayi1">
+    </div>
+    <div>
+        <label for="" style="margin: 5px;">Sayı 2</label>
+        <input style="margin: 5px; padding: 2px 5.03px;" type="text" name="" id="sayi2">
+    </div>
+    <div style="margin-top: 7px;">
+        <button onclick="sum(Number(document.getElementById('sayi1').value),Number(document.getElementById('sayi2').value))">Sum</button>
+        <button onclick="substract(Number(document.getElementById('sayi1').value),Number(document.getElementById('sayi2').value))">Substract</button>
+        <button onclick="multiply(Number(document.getElementById('sayi1').value),Number(document.getElementById('sayi2').value))">Multiply</button>
+        <button onclick="divide(Number(document.getElementById('sayi1').value),Number(document.getElementById('sayi2').value))">Divide</button>
+    </div>    
+<!--11.Soru-->
+    <div>
+        <table id="newTable">
+            <tr id="0">
+                <td>First Item</td>
+            </tr>
+            <tr id="1">
+                <td>Second Item</td>
+            </tr>
+            <tr id="2">
+                <td>Third Item</td>
+            </tr>
+            <tr id="3">
+                <td>Fourth Item</td>
+            </tr>
+            <tr id="4">
+                <td>Fifth Item</td>
+            </tr>
+        </table>
+    </div>
+    <button type="button" onclick="deleteThird()">Delete</button>
+<!--12.Soru-->
+    <button id="btn" onclick="changeWidth()">Change Size</button>
+<!--13,1.Soru-->
+    <div>
+        <label for="" style="margin: 5px;">Renk Değeri</label>
+        <input style="margin: 5px; padding: 2px 5.03px;" type="text" name="" id="renk">
+    </div>
+    <button onclick="bodyColor(document.getElementById('renk').value)">Renk Ata</button>     
+<!--13,2.Soru-->
+    <button id='btn1' onclick="deleteButton(btn1)">Button 1</button>
+    <button id='btn2' onclick="deleteButton(btn2)">Button 2</button>
+    <button id='btn3' onclick="deleteButton(btn3)">Button 3</button>     
+<!--14.Soru-->
+    <div id="lbl0"></div>
+    <div id="lbl1"></div>
+    <div id="lbl2"></div>
+    <div id="lbl3"></div>
+    <div id="lbl4"></div>
+    <div id="lbl5"></div>
+    <button style="margin: 5px;" onclick="lotto()">Rastgele Üret</button>     
+</body>
+</html>
+
+<script>
+    
+    var x = 0;
+    var sentence = "Hello";
+    var condition = true;
+    
+    let multipleNumbers = [5,21,943,81,1];
+    let multipleSentences = ['İstanbul','Yıldız','Sandalye','Pluton','Polis']
+    console.log(multipleNumbers);
+    console.log(multipleSentences);
+    
+    let product = [
+        {
+            name : 'Chai',
+            unitPrice : 45.00
+        },
+        {
+            name : 'Asdcv',
+            unitPrice : 14.50
+        },
+        {
+            name : 'Ererdc',
+            unitPrice : 29.15
+        }
+    ]
+    console.log(product)
+      
+   var product = [
+       {
+           name: 'Xiaomi',
+           unitPrice: 79.2,
+           unitsInStock: 5
+       }
+   ]
+   product.push({name: 'Huawei', unitPrice: 107.6, unitsInStock: 36});
+   product.push({name: 'Nokia', unitPrice: 59.8, unitsInStock: 12});
+   product.push({name: 'Samsung', unitPrice: 135.4, unitsInStock: 8});
+   product.push({name: 'Iphone', unitPrice: 183.0, unitsInStock: 20});
+   
+   var count = product.length;
+   var lastItem = product.splice(product.length - 1, 1);
+   var firstItem = product.splice(0, 1);
+   var selectedItem = product.find(item => item.name === 'Samsung');
+   var expensive = product.filter(item => item.unitPrice > 100);
+     
+   function sum(x,y){
+       alert(x+y);
+   }
+   function substract(x,y){
+       alert(x-y);
+   }
+   function multiply(x,y){
+       alert(x*y);
+   }
+   function divide(x,y){
+       alert(x/y);
+   }
+   
+   function deleteThird(){
+       var table = document.getElementById('newTable').deleteRow(2);
+   }
+    
+   function changeWidth(){
+       let button = document.getElementById('btn');
+       button.style.width = Math.floor(Math.random() * 400) + 100 + 'px';
+   }
+     
+   function deleteButton(btn){
+       if (btn == btn1){
+           let btn = document.getElementById('btn1');
+           btn.style.display = 'none';
+       }
+       else if (btn == btn2){
+           let btn = document.getElementById('btn2');
+           btn.style.display = 'none';
+       }
+       else{
+           let btn = document.getElementById('btn3');
+           btn.style.display = 'none';
+       }
+   }
+   
+   function bodyColor(value){
+       if (value == 0){
+           alert('Lütfen renk seçiniz')
+       }
+       else{
+           document.body.style.background = value;   
+       }  
+   }
+
+   function lotto() {
+   let rnd = [];
+   let counter = 0
+   while(counter < 6){
+       var nmb = Math.floor(Math.random() * 48) + 1;
+       if(!rnd.includes(nmb)){
+          rnd.push(nmb);
+          document.getElementById("lbl"+counter).innerText = rnd[counter];
+          counter++;
+       }
+   }
+}
+</script>
