@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<!-- <body onload="getData()">
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units in Stock</th>
+        </tr>
+        <tr>
+            <td id="productName"></td>
+            <td id="unitPrice"></td>
+            <td id="unitsInStock"></td>
+        </tr>
+    </table>
+
+    <table id="categoryTable">
+        <tr>
+
+            <th>Category Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td id="categoryName"></td>
+            <td id="description"></td>
+        </tr>
+    </table>
+</body> -->
+<body>
+    <!-- <div>
+        <label>Name:</label>
+        <input style="margin-left: 75px;" type="text" name="" id="name">
+    </div>
+    <div>
+        <label>Quantity Per Unit:</label>
+        <input type="text" name="" id="quantityPerUnit">
+    </div>
+    <div>
+        <label>Product ID:</label>
+        <input style="margin-left: 43px;" type="text" name="" id="id">
+    </div>
+    <div>
+        <label>Unit Price:</label>
+        <input style="margin-left: 48px;" type="text" name="" id="unitPrice">
+    </div>
+    <div>
+        <label>Units In Stock:</label>
+        <input style="margin-left: 21px;" type="text" name="" id="unitsInStock">
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div> -->
+
+
+    <!-- <div>
+        <label>ID:</label>
+        <input style="margin-left: 21px;" type="text" name="" id="ID">
+    </div>
+    <div>
+        <button style="margin-top: 10px;" id="delete">Delete</button>
+    </div> -->
+
+    <!-- <table id='suppliers'>
+        <tr>
+            <td>ID</td>
+            <td>CompanyName</td>
+            <td>ContactName</td>
+            <td>ContactTitle</td>
+        </tr>
+    </table>
+    <button onclick="bringSuppliers()">Show</button> -->
+
+    <!-- <table id='products'>
+        <tr>
+            <td>ID</td>
+            <td>Unit Price</td>
+            <td>Units In Stock</td>
+        </tr>
+    </table>
+    <button onclick="bringProducts()">Show</button> -->
+
+    <!-- <table id='products'>
+        <tr>
+            <td>ID</td>
+            <td>Unit Price</td>
+            <td>Discontinued</td>
+        </tr>
+    </table>
+    <button onclick="bringProducts()">Show</button> -->
+
+    <!-- <body>
+        <button onclick="getData()">Büyük Harf</button>
+    </body> -->
+
+    <!-- <body>
+        <button onclick="getData()">Küçük Harf</button>
+    </body> -->
+
+    <!-- <body>
+        <button onclick="getData()">İlk Harf</button>
+    </body> -->
+
+    <!-- <body>
+        <button onclick="getData()">İlk İki Harf</button>
+    </body> -->
+
+    <body>
+        <button onclick="getData()">Sonuç</button>
+    </body>
+</body>
+</html>
+
+<script>
+    // 1.Soru
+    //   function getData() {
+    //     fetch('https://northwind.vercel.app/api/products')
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             data.map((item) => {
+    //                 let newtr = document.createElement('tr');
+    //                 newtr.innerHTML = item.name;
+    //                 document.getElementById('productName').append(newtr);
+    //             });
+    //             data.map((item) => {
+    //                 let newtr = document.createElement('tr');
+    //                 newtr.innerHTML = item.unitPrice;
+    //                 document.getElementById('unitPrice').append(newtr);
+    //             });
+    //             data.map((item) => {
+    //                 let newtr = document.createElement('tr');
+    //                 newtr.innerHTML = item.unitsInStock;
+    //                 document.getElementById('unitsInStock').append(newtr);
+    //             });
+    //         });
+    // }
+
+    // 2.Soru
+    // function getData() {
+    //     fetch('https://northwind.vercel.app/api/categories')
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             data.map((item) => {
+    //                 let newtr = document.createElement('tr');
+    //                 newtr.addEventListener("click", function(){this.hidden = true;});
+    //                 let newtd1 = document.createElement('td');
+    //                 newtd1.innerHTML = item.name;
+    //                 let newtd2 = document.createElement('td');
+    //                 newtd2.innerHTML = item.description;
+    //                 newtr.appendChild(newtd1);
+    //                 newtr.appendChild(newtd2);
+    //                 document.getElementById('categoryTable').appendChild(newtr);
+    //             });
+    //         })
+    //     }
+
+    // 3.Soru
+    // function add(){
+    //     let productName = document.getElementById('name').value;
+    //     let productQuantity = document.getElementById('quantityPerUnit').value;
+    //     let productId = document.getElementById('id').value;
+    //     let productUnitPrice = document.getElementById('unitPrice').value;
+    //     let productUnitsInStock = document.getElementById('unitsInStock').value;
+    //     let newProduct = {
+    //         name:productName,
+    //         quantityPerUnit:productQuantity,
+    //         id:productId,
+    //         unitPrice:productUnitPrice,
+    //         unitsInStock:productUnitsInStock
+    //     };
+    //     let requestOptions = {
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         method: "POST",
+    //         body: JSON.stringify(newProduct)
+    //     }
+    //     fetch('https://northwind.vercel.app/api/products', requestOptions)
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         console.log(data);
+    //     })
+    // }
+
+    // 4.Soru
+    // document.getElementById("delete").addEventListener('click', function() {
+    // let supID = document.getElementById("ID").value;
+    // fetch('https://northwind.vercel.app/api/suppliers/' + supID, {
+    // method: 'DELETE',
+    // headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //     },
+    //     body: null
+    // })
+    //     .then(res => res.json())
+    //     .then(res => console.log(res))
+    // })
+
+    // 7.Soru
+    //     function bringSuppliers(){
+    //         fetch('https://northwind.vercel.app/api/suppliers/')
+    //         .then((res) => res.json())
+    //         .then((data) => {        
+    //         let ndata = data.slice(0,5);
+    //         ndata.map((item) => {
+    //             let newtr = document.createElement('tr');
+    //             let tdId = document.createElement('td'); 
+    //             let tdCompanyName = document.createElement('td');
+    //             let tdContactName = document.createElement('td'); 
+    //             let tdContactTitle = document.createElement('td');
+    //             tdId.innerHTML = item.id;
+    //             tdCompanyName.innerHTML = item.companyName;
+    //             tdContactName.innerHTML = item.contactName;
+    //             tdContactTitle.innerHTML = item.contactTitle;
+    //             newtr.appendChild(tdId);
+    //             newtr.appendChild(tdCompanyName);
+    //             newtr.appendChild(tdContactName);
+    //             newtr.appendChild(tdContactTitle);
+    //             document.getElementById('suppliers').appendChild(newtr);
+    //         })
+    //     })
+    // }
+
+    // 8.Soru
+    // function bringProducts(){
+    //     fetch('https://northwind.vercel.app/api/products/')
+    //         .then((res) => res.json())
+    //         .then((data) => {        
+    //         let ndata = data.filter(item=>item.unitPrice>100);
+    //         ndata.map((item) => {
+    //             let newtr = document.createElement('tr');
+    //             let tdId = document.createElement('td'); 
+    //             let tdUnitPrice = document.createElement('td');
+    //             let tdUnitsInStock = document.createElement('td'); 
+    //             tdId.innerHTML = item.id;
+    //             tdUnitPrice.innerHTML = item.unitPrice;
+    //             tdUnitsInStock.innerHTML = item.unitsInStock;
+    //             newtr.appendChild(tdId);
+    //             newtr.appendChild(tdUnitPrice);
+    //             newtr.appendChild(tdUnitsInStock);
+    //             document.getElementById('products').appendChild(newtr);
+    //         })
+    //     })
+    // }
+
+    // 9.Soru
+    // function bringProducts(){
+    //     fetch('https://northwind.vercel.app/api/products/')
+    //         .then((res) => res.json())
+    //         .then((data) => {        
+    //         let ndata = data.filter(item=>item.discontinued==true);
+    //         ndata.map((item) => {
+    //             let newtr = document.createElement('tr');
+    //             let tdId = document.createElement('td'); 
+    //             let tdUnitPrice = document.createElement('td');
+    //             let tdDiscontinued = document.createElement('td'); 
+    //             tdId.innerHTML = item.id;
+    //             tdUnitPrice.innerHTML = item.unitPrice;
+    //             tdDiscontinued.innerHTML = item.discontinued;
+    //             newtr.appendChild(tdId);
+    //             newtr.appendChild(tdUnitPrice);
+    //             newtr.appendChild(tdDiscontinued);
+    //             document.getElementById('products').appendChild(newtr);
+    //         })
+    //     })
+    // }
+
+    // 10.Soru
+    // function getData(){
+    //     let url = 'https://northwind.vercel.app/api/categories'
+    //     fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //         data.map((item) => {
+    //             console.log(item.name.toUpperCase());
+    //         })
+    //     })
+    // }
+
+    // 11.Soru
+    // function getData(){
+    //     let url = 'https://northwind.vercel.app/api/categories'
+    //     fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //         data.map((item) => {
+    //             console.log(item.name.toLowerCase());
+    //         })
+    //     })
+    // }
+
+    // 12.Soru
+    // function getData(){
+    //     let url = 'https://northwind.vercel.app/api/categories'
+    //     fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //         data.map((item) => {
+    //             console.log(item.name.substring(0,1));
+    //         })
+    //     })
+    // }
+
+    // 13.Soru
+    // function getData(){
+    //     let url = 'https://northwind.vercel.app/api/categories'
+    //     fetch(url)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //         data.map((item) => {
+    //             console.log(item.name.substring(0,2));
+    //         })
+    //     })
+    // }
+
+    // 14.Soru
+    function getData(){
+        let url = 'https://northwind.vercel.app/api/products'
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+            data.map((item) => {
+                console.log((item.unitPrice) * 0.18);
+            })
+        })
+    }
+</script>
