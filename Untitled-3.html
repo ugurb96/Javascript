@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    <input type="text" name="" id="number">
+    <button onclick="square()">Calculate</button> 
+    -->
+
+    <!-- 
+    <div>
+        <input style="margin: 5px;" type="text" name="" id="number1">
+    </div>
+    <div>
+        <input style="margin: 5px;" type="text" name="" id="number2">
+    </div>
+    <div>
+        <input style="margin: 5px;" type="text" name="" id="number3">
+    </div>
+    <button style="margin: 5px;" onclick="compare()">Compare</button> 
+    -->
+
+    <!-- 
+    <div>
+        <input style="margin: 5px;" type="text" name="" id="word">
+    </div>
+    <button style="margin: 5px;" onclick="upper()">Upper</button> 
+    -->
+
+    <!-- 
+    <div>
+        <input style="margin: 5px;" type="text" name="" id="sumof">
+    </div>
+    <button style="margin: 5px;" onclick="sumOfNumbers()">Sum</button>  
+    -->
+
+    <!--
+    <div id="list"></div>
+    <input type="text" name="" id="numberOfButtons">;
+    <button onclick="appendButtons()">Create Buttons</button>
+    -->
+
+    <!--
+    <input type="text" name="" id="first">
+    <input type="text" name="" id="second">
+    <input type="text" name="" id="third">
+    <button onclick="postResults()">Send Result</button>
+    -->
+</body>
+</html>
+
+<script>
+
+    function square(){
+        var item = document.getElementById('number').value;
+        console.log(item * item);
+    }
+
+    function compare(){
+        var a = document.getElementById('number1').value;
+        var b = document.getElementById('number2').value;
+        var c = document.getElementById('number3').value;
+        if(a > b){
+            if(a > c){
+                console.log(a);
+            }
+            else{
+                console.log(c);
+            } 
+        }
+        else {
+            if(b > c){
+                console.log(b);
+            }
+            else{
+                console.log(c);
+            }
+        }
+    }
+
+    function upper(){
+        var word = document.getElementById('word').value;
+        console.log(word.toUpperCase());
+    }
+
+    function sumOfNumbers(){
+        var sumNumber = 0;
+        var number = document.getElementById('sumof').value;
+        for (i=0;i<number;i++){
+            sumNumber += i;
+        }
+        console.log(sumNumber);
+    }
+
+    function appendButtons(){        
+        var length = document.getElementById('numberOfButtons').value;
+        for (i=0;i<length;i++){
+            var button = document.createElement('button');
+            button.innerHTML = 'button' + ' ' + i;
+            button.style.marginTop = 3 + 'px';
+            button.style.marginBottom = 3 + 'px';
+            document.getElementById('list').appendChild(button);
+        }
+    }
+    /*
+    var webUser = {
+        name:'Yılmaz',
+        surname:'Doğan',
+        id:'hback',
+        password:12345
+    }
+    console.log(webUser);
+
+    var product = {
+        id:1148,
+        productName:'Samsung',
+        quantity:25,
+        unitPrice:11.75
+    }
+    console.log(product);
+
+    var arr = ['ali','uranus','honda','perde'];
+    for(i=0;i<arr.length;i++){
+        console.log(arr[i]);
+    }
+
+    var arr = [75,21,129,42];
+    for(i=0;i<arr.length;i++){
+        console.log((arr[i] * 1.18).toFixed(2));
+    }
+
+    var newProduct = [
+        {
+            id:1148,
+            productName:'Samsung',
+            quantity:25,
+            unitPrice:11.75
+        },
+        {
+            id:1654,
+            productName:'Iphone',
+            quantity:39,
+            unitPrice:15.5
+        },
+        {
+            id:1043,
+            productName:'Xiaomi',
+            quantity:12,
+            unitPrice:9.8
+        },
+        {
+            id:1906,
+            productName:'Nokia',
+            quantity:66,
+            unitPrice:7.4
+        }
+    ]
+    console.log(newProduct);
+    */
+
+    // var arr = [1,15,24,87,60];
+    // console.log(arr[arr.length-1]);
+    // arr.splice(1,1);
+    // console.log(arr.splice(3));
+    // var arr1 = [24,38,93,51,5];
+    // var newarr = arr.concat(arr1);
+    // console.log(newarr);
+
+    // fetch('https://northwind.vercel.app/api/categories').then(res=>res.json()).then(data => {
+    //     console.log(data);
+    // })
+
+    // var counter = 0;
+    // fetch('https://northwind.vercel.app/api/categories').then(res=>res.json()).then(data => {
+    //     data.forEach(element => {
+    //         counter++;
+    //     });
+    //     console.log(counter);
+    // })
+
+    // fetch('https://northwind.vercel.app/api/customers').then(res=>res.json()).then(data=>{
+    //     console.log(data);
+    // })
+
+    // let totalvalue = 0;
+    // fetch('https://northwind.vercel.app/api/products').then(res=>res.json()).then(data=>{
+    //     data.forEach(element => {
+    //         totalvalue += element.unitPrice;
+    //     });
+    //     console.log(totalvalue);
+    // })
+
+    // fetch('https://northwind.vercel.app/api/orders').then(res=>res.json()).then(data=>{
+    //     data.map(item=>{
+    //         item.country = 'USA';
+    //         console.log(item);
+    //     });
+    // })
+
+    // fetch('https://northwind.vercel.app/api/orders').then(res=>res.json()).then(data => {
+    //     var newData = data.map(item => item.details);
+    //     newData.map(item => {
+    //         item.forEach(element => {
+    //             var result = (element.quantity * element.unitPrice) * (1 - element.discount);
+    //             console.log(result);
+    //         });
+    //     })
+    // })
+
+    function postResults(){
+        var compName = document.getElementById('first').value;
+        var contName = document.getElementById('second').value;
+        var contTitle = document.getElementById('third').value;
+
+        var newSupplier = {
+            companyName : compName,
+            contactName : contName,
+            contactTitle : contTitle
+        };
+
+        let requestOptions = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify(newSupplier)
+        }
+
+        fetch('https://northwind.vercel.app/api/suppliers', requestOptions)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+        })
+    }
+</script>
